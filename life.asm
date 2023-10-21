@@ -2,6 +2,8 @@
         ; A 256 Byte intro with MPU401 MIDI "music"
         ; Tested on a 486 with PC MIDI card and Roland SC55
 	; (C)2023 A. Schmitz - root42 <root42@root42.de>
+	; minified from 250 bytes down to 210 by joonicks <god@joonicks.eu> october 2023
+
 org 0x100
 CPU 8086
 
@@ -43,7 +45,6 @@ initpalette:
 	mov al,0x3f             ; send 'switch to UART' command
 	out dx,al               ; write to mpu status port
 
-	; ax is 0x403f
 setup_acorn:
         mov ax,0x0101           ; Bit pattern for two adjacent cells
 	mov byte [320*100+161],al
